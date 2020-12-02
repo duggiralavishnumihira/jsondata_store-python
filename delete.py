@@ -3,6 +3,9 @@ from sys import exit
 from argparse import ArgumentParser
 import FilePreprocess
 import datastore
+DEFAULT_DB_PATH = 'db'
+DEFAULT_DB_NAME = 'db.json'
+
 
 parser = ArgumentParser()
 parser.add_argument('--datastore', help='Enter the datastore absolute path.')
@@ -22,6 +25,6 @@ if not directory_created:
 
 key = 'ghi'
 
-'''DELETE DATA FROM DATASTORE'''
-_data_found, message = DataStoreCRD().check_delete_data(key, db_path)
+
+_data_found, message = check_delete_data(key, db_path)
 print(message)
