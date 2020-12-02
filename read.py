@@ -13,7 +13,7 @@ args = parser.parse_args()
 if args.datastore:
     db_path = args.datastore
 else:
-    db_path = configurations.DEFAULT_DB_PATH
+    db_path = DEFAULT_DB_PATH
 
 directory_created = FilePreprocess(db_path).create_folder()
 if not directory_created:
