@@ -1,18 +1,18 @@
 #Enter your code here...
 import json
-
 from os import path
 from datetime import datetime, timedelta
 from dateutil.parser import parse
 
     def check_time_to_live(self, value):
-                created_time = value['CreatedAt']
+        created_time = value['CreatedAt']
         created_time = parse(created_time)
 
         time_to_live = value['Time-To-Live']
 
-        if time_to_live is not None:.
-            expired_datetime = created_time + timedelta(seconds=time_to_live)            remaining_seconds = (expired_datetime - datetime.now()).total_seconds()
+        if time_to_live is not None:
+            expired_datetime = created_time + timedelta(seconds=time_to_live)            
+            remaining_seconds = (expired_datetime - datetime.now()).total_seconds()
 
             if remaining_seconds <= 0:
                 return False
@@ -42,6 +42,7 @@ from dateutil.parser import parse
         data = {}
         if path.isfile(datastore):
             with open(datastore) as f:
+                
 data = json.load(f)
 prev_data_obj = json.dumps(data)
                 if len(prev_data_obj) >= 1000000000:
