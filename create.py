@@ -3,6 +3,9 @@ from sys import exit
 from argparse import ArgumentParser
 import FilePreprocess
 import datastore
+DEFAULT_DB_PATH = 'db'
+DEFAULT_DB_NAME = 'db.json'
+
 
 parser = ArgumentParser()
 parser.add_argument('--datastore', help='Enter the datastore absolute path.')
@@ -11,7 +14,7 @@ args = parser.parse_args()
 if args.datastore:
     db_path = args.datastore
 else:
-    db_path = configurations.DEFAULT_DB_PATH
+    db_path = DEFAULT_DB_PATH
 
 
 directory_created = FilePreprocess(db_path).create_folder()
@@ -46,6 +49,6 @@ json_data = {
         "Time-To-Live": 250,
     }
 }
-''' CREATE DATA IN DATASTORE '''
-_valid_data, message = DataStoreCRD().check_create_data(json_data, db_path)
+
+_valid_data, message = check_create_data(json_data, db_path)
 print(message)
