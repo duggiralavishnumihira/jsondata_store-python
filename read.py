@@ -2,6 +2,8 @@ from sys import exit
 from argparse import ArgumentParser
 import FilePreprocess
 import datastore
+DEFAULT_DB_PATH = 'db'
+DEFAULT_DB_NAME = 'db.json'
 
 
 parser = ArgumentParser()
@@ -21,5 +23,5 @@ if not directory_created:
 
 key = 'ghi'
 
-_data_found, message = DataStoreCRD().check_read_data(key, db_path)
+_data_found, message = check_read_data(key, db_path)
 print(message)
